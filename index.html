@@ -1,0 +1,56 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="jquery-3.6.0.min.js"></script>
+
+<br/><br/>
+<center>
+<input type="text" id="caesar_text"><input type="button" id="caesar_button" value="Caesar!">
+<br/><br/>
+<div id="output" style="font-family: monospace, monospace; font-size: 30px;"></div>
+</center>
+
+<script>
+
+
+var c_a_r = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "A", "B", "C", "D", "E",];
+c_a_r[-1] = "Z";
+c_a_r[-2] = "Y";
+c_a_r[-3] = "X";
+c_a_r[-4] = "W";
+c_a_r[-5] = "V";
+
+
+// "U", "V", "W", "X", "Y", "Z"
+//let index = fruits.indexOf("Apple");
+
+/*
+
+var s = "population";
+for (var i = 0; i < s.length; i++) {
+    console.log(s.charAt(i));
+}
+
+*/
+
+
+$( "#caesar_button" ).on( "click", function() {
+  
+  var s = $( "#caesar_text" ).val();
+  
+  $( "#output" ).html("");
+for (var i = 0; i < s.length; i++) {
+    
+	
+	console.log(s.charAt(i));
+	
+	let index = c_a_r.indexOf(s.charAt(i).toUpperCase());
+	console.log(index);
+	
+	
+	if(s.charAt(i) !== " "){
+		$( "#output" ).append(c_a_r[index-5] + c_a_r[index-4] + c_a_r[index-3] + c_a_r[index-2] + c_a_r[index-1] + "<b style='color:blue;'>" + c_a_r[index] + "</b>" + c_a_r[index+1] + c_a_r[index+2] + c_a_r[index+3] + c_a_r[index+4] + c_a_r[index+5] + "<br/>"  );
+	}
+}
+  
+} );
+
+</script>
